@@ -25,3 +25,4 @@ add_subdirectory ("${PROJECT_SOURCE_DIR}/tests")
 add_subdirectory ("${PROJECT_SOURCE_DIR}/doctests")
 
 include (etc/tests.cmake)
+
