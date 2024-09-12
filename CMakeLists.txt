@@ -1,3 +1,6 @@
+
+
+
 cmake_minimum_required (VERSION 2.8.5)
 cmake_policy (SET CMP0054 NEW)
 project (Sponge)
@@ -24,5 +27,14 @@ add_subdirectory ("${PROJECT_SOURCE_DIR}/tests")
 
 add_subdirectory ("${PROJECT_SOURCE_DIR}/doctests")
 
+
 include (etc/tests.cmake)
 
+add_compile_definitions(
+	-DCMAKE_BUILD_TYPE=Release   # optimizations
+	-DCMAKE_BUILD_TYPE=Debug     # debug symbols and -Og
+	-DCMAKE_BUILD_TYPE=RelASan   # release build with ASan and UBSan
+	-DCMAKE_BUILD_TYPE=RelTSan   # release build with ThreadSan (私以为这个大概率用不到)
+	-DCMAKE_BUILD_TYPE=DebugASan # debug build with ASan and UBSan
+	-DCMAKE_BUILD_TYPE=DebugTSan # debug build with ThreadSan
+)
